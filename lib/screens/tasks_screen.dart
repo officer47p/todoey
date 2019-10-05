@@ -15,6 +15,18 @@ class _TasksState extends State<Tasks> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.lightBlueAccent,
         child: Icon(Icons.add),
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            builder: (context) {
+              return Container(
+                child: Center(
+                  child: Text("THIS IS A BOTTOM SHEET!!!"),
+                ),
+              );
+            },
+          );
+        },
       ),
       body: SafeArea(
         child: Column(
