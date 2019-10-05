@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todoey/widgets/tasks_list.dart';
 import 'package:todoey/widgets/task_tile.dart';
+import 'package:todoey/screens/add_task_screen.dart';
 
 class Tasks extends StatefulWidget {
   @override
@@ -18,13 +19,7 @@ class _TasksState extends State<Tasks> {
         onPressed: () {
           showModalBottomSheet(
             context: context,
-            builder: (context) {
-              return Container(
-                child: Center(
-                  child: Text("THIS IS A BOTTOM SHEET!!!"),
-                ),
-              );
-            },
+            builder: (context) => AddTaskScreen(),
           );
         },
       ),
