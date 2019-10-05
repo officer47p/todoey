@@ -9,11 +9,34 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30),
-          topRight: Radius.circular(30),
-        ),
+      padding: EdgeInsets.only(top: 10, left: 30, right: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Text(
+            "Add Task",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.lightBlueAccent,
+              fontSize: 30,
+            ),
+          ),
+          Container(
+            child: TextField(
+              textAlign: TextAlign.center,
+              autofocus: true,
+            ),
+            // padding: EdgeInsets.symmetric(horizontal: 30),
+          ),
+          RaisedButton(
+            color: Colors.lightBlueAccent,
+            child: Text(
+              "Add",
+              style: TextStyle(color: Colors.white),
+            ),
+            onPressed: () => Navigator.pop(context),
+          )
+        ],
       ),
     );
   }
