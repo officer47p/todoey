@@ -45,14 +45,7 @@ class _TasksState extends State<Tasks> {
                   SizedBox(
                     height: 10,
                   ),
-                  Text(
-                    "Todoey",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 50,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
+                  AnimatedTitle(),
                   Text(
                     "12 Tasks",
                     style: TextStyle(
@@ -81,6 +74,60 @@ class _TasksState extends State<Tasks> {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class AnimatedTitle extends StatefulWidget {
+  @override
+  _AnimatedTitleState createState() => _AnimatedTitleState();
+}
+
+class _AnimatedTitleState extends State<AnimatedTitle>
+    with SingleTickerProviderStateMixin {
+  var controller;
+  var animation;
+  @override
+  void initState() {
+    super.initState();
+    controller =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
+    animation =
+        CurvedAnimation(parent: controller, curve: Curves.linearToEaseOut);
+
+    controller.addListener(() {
+      setState(() {});
+      // print(animation.value);
+    });
+    controller.addStatusListener((status) {
+      // print(status);
+      if (status == AnimationStatus.completed) {
+        controller.reverse(from: 1.0);
+      } else if (status == AnimationStatus.dismissed) {
+        controller.forward();
+      }
+    });
+    controller.forward();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment(-1 + animation.value / 2, 0),
+      child: Text(
+        "Todoey",
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 50,
+          fontWeight: FontWeight.w700,
         ),
       ),
     );
