@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todoey/widgets/tasks_list.dart';
+import 'package:todoey/widgets/task_tile.dart';
 
 class Tasks extends StatefulWidget {
   @override
@@ -63,47 +65,12 @@ class _TasksState extends State<Tasks> {
                     topRight: Radius.circular(30),
                   ),
                 ),
-                padding: EdgeInsets.all(30),
-                child: ListView(
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          "jnjfkngfd",
-                          style: TextStyle(fontSize: 18, color: Colors.black),
-                        ),
-                        Checkbox(
-                          value: true,
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          "jnjfkngfd",
-                          style: TextStyle(fontSize: 18, color: Colors.black),
-                        ),
-                        Checkbox(
-                          value: false,
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          "jnjfkngfd",
-                          style: TextStyle(fontSize: 18, color: Colors.black),
-                        ),
-                        Checkbox(
-                          value: true,
-                        ),
-                      ],
-                    )
-                  ],
+                padding: EdgeInsets.only(
+                  left: 20,
+                  right: 20,
+                  top: 30,
                 ),
+                child: TasksList(),
               ),
             ),
           ],
