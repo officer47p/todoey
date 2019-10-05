@@ -26,7 +26,6 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
               textAlign: TextAlign.center,
               autofocus: true,
             ),
-            // padding: EdgeInsets.symmetric(horizontal: 30),
           ),
           RaisedButton(
             color: Colors.lightBlueAccent,
