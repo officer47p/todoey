@@ -21,11 +21,9 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
               fontSize: 30,
             ),
           ),
-          Container(
-            child: TextField(
-              textAlign: TextAlign.center,
-              autofocus: true,
-            ),
+          TextField(
+            textAlign: TextAlign.center,
+            autofocus: true,
           ),
           RaisedButton(
             color: Colors.lightBlueAccent,
