@@ -6,6 +6,8 @@ class AddTaskScreen extends StatefulWidget {
 }
 
 class _AddTaskScreenState extends State<AddTaskScreen> {
+  String newTask;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,6 +26,9 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
           TextField(
             textAlign: TextAlign.center,
             autofocus: true,
+            onChanged: (newValue) {
+              newTask = newValue;
+            },
           ),
           RaisedButton(
             color: Colors.lightBlueAccent,
@@ -31,7 +36,10 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
               "Add",
               style: TextStyle(color: Colors.white),
             ),
-            onPressed: () => Navigator.pop(context),
+            onPressed: () => Navigator.pop(
+              context,
+              newTask,
+            ),
           )
         ],
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todoey/widgets/tasks_list.dart';
 import 'package:todoey/screens/add_task_screen.dart';
+import 'package:todoey/models/task.dart';
 
 class Tasks extends StatefulWidget {
   @override
@@ -8,6 +9,11 @@ class Tasks extends StatefulWidget {
 }
 
 class _TasksState extends State<Tasks> {
+  List<Task> tasks = [
+    Task(name: "Buy bread"),
+    Task(name: "Buy milk"),
+    Task(name: "Buy eggs"),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,11 +21,15 @@ class _TasksState extends State<Tasks> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.lightBlueAccent,
         child: Icon(Icons.add),
-        onPressed: () {
-          showModalBottomSheet(
+        onPressed: () async {
+          String newTask = await showModalBottomSheet(
             context: context,
             builder: (context) => AddTaskScreen(),
           );
+          setState(() {
+            tasks.add(Task(name: newTask));
+          });
+          print(tasks.map((item) => print(item.name)).toList());
         },
       ),
       body: SafeArea(
@@ -76,7 +86,7 @@ class _TasksState extends State<Tasks> {
                   right: 20,
                   top: 30,
                 ),
-                child: TasksList(),
+                child: TasksList(tasks),
               ),
             ),
           ],

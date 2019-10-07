@@ -3,16 +3,19 @@ import 'task_tile.dart';
 import 'package:todoey/models/task.dart';
 
 class TasksList extends StatefulWidget {
+  final tasks;
+  TasksList(this.tasks);
   @override
   _TasksListState createState() => _TasksListState();
 }
 
 class _TasksListState extends State<TasksList> {
-  List<Task> tasks = [
-    Task(name: "Buy bread"),
-    Task(name: "Buy milk"),
-    Task(name: "Buy eggs"),
-  ];
+  List<Task> tasks;
+  @override
+  void initState() {
+    tasks = widget.tasks;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
